@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS 选择器</title>
+    <style>
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+            background: gray;
+            border-radius: 3px;
+            padding: 2px;
+            margin-left: 20px;
+        }
+        li:hover {
+            background-color: red;
+        }
+        li:first-child {
+            margin-left: 0;
+        }
+
+        a{
+            /* 去掉下划线 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            /* 显示下划线 */
+            text-decoration: underline;
+        }
+  
+        .feature-box {
+            display: flex;
+        }
+        .feature-box div {
+            width: 100%;
+            margin: 1px;
+        }
+        .feature-box.sales div {
+            background-color: gray;
+        }
+        .feature-box.closeouts div {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="directions.html">Directions</a></li>
+    </ul>
+    <section class="feature-box sales">
+        <div>section a</div>
+        <div>section b</div>
+        <div>section c</div>
+    </section>
+    <section class="feature-box closeouts">
+        <div>section d</div>
+        <div>section e</div>
+    </section>
+</body>
+</html>

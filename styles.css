@@ -1,0 +1,145 @@
+body {
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+header {
+    background-color: black;
+    background-image: url("images/header.jpg");
+    background-size: 100%;
+    background-position: center;
+    height: 400px;
+    /* 
+        margin padding 
+        一个值： 四边
+        两个值： 上下 左右
+        四个值： 顺时针 上 右 下 左
+     */
+    padding: 20px;
+    text-align: center;
+}
+
+header a{
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 文字大写 */
+    text-transform: uppercase;
+    color: white;
+    margin-top: 40px;
+}
+
+header .mobile {
+    display: none;
+}
+
+header .logo a {
+    /* backgroud: color image repeat width */
+    background-image: url("images/logo.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 80px;
+    /* 让文本左移到超远的位置 */
+    text-indent: -999999px;
+    /* 相对于所在的盒模型位置进行调整 */
+    position: relative;
+    top: -40px;
+    height: 80px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    /* 去掉小黑点 */
+    list-style-type: none; 
+}
+
+nav li {
+    /* 横向布局 */
+    display: inline;
+    /* 上 右 下 左 */
+    margin: 0 20px 0 0;
+}
+
+/* PESPONSIVE RULES */
+
+@media screen and (max-width: 780px) {
+    header {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    header {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    header {
+        height: 200px;
+        /* 背景图下移 */
+        /* background-position: 0 -0px; */
+    }
+}
+/* 屏幕小 加载小图 */
+@media screen and (max-width: 517px) {
+    header .mobile {
+        display: inline-block;
+    }
+
+    header .desktop {
+        display: none;
+    }
+}
+
+/* FEATURES */
+.features {
+    background: white;
+    color: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    /* 行不够 换行 */
+    flex-wrap: wrap;
+}
+
+.features figure{
+    /*
+        display
+            block 块级（默认）
+            inline 内联: 宽度失效， div的宽度由其内容来决定
+            inline-block 行内块: 既是行内也是块级, 可以手动指定宽高
+            flex 弹性布局: 为父元素设置(配上margin: auto;可以实现弹性居中)
+                flex-direction 弹性方向: 
+                    row（默认）
+                    row-reverse: 与row相反
+                    column 
+                    column-reverse: column的反向排列
+    */
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+}
+
+.features figure img {
+    border: 1px solid white;
+    border-radius: 50%;
+    /* 水平 垂直 阴影模糊距离 */
+    box-shadow: 0px 0px 10px gray;
+    width: 200px;
+}
+
+/* FOOTER */
+footer {
+    background: black;
+    color: gray;
+    font-size: 12px;
+    padding: 20px 20px;
+    text-align: center;
+}
+
