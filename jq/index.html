@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>jQuery</h1>
+    <h2>动画</h2>
+    <div class="content">
+        <div id="id1">#id1</div>
+        <div id="id2">#id2</div>
+        <div id="id3">#id3</div>
+        <div id="id4">#id4</div>
+    </div>
+    <h2>css</h2>
+    <div class="content">
+        <div id="id5">#id5</div>
+        <div id="id6">#id6</div>
+        <div id="id7">#id7</div>
+        <div id="id8">#id8</div>
+    </div>
+    <h2>事件监听</h2>
+    <div class="content">
+        <div id="id9">#id9</div>
+        <div id="id10">#id10</div>
+        <div id="id11">
+            #id11
+            <span>content</span>
+        </div>
+        <div id="id12">#id12</div>
+    </div>
+    <h2>精简操作</h2>
+    <div class="content">
+        <div id="id13" data-mydata="mydata1">#id13</div>
+        <div class="mydata" data-mydata="mydata2">#id14</div>
+        <div class="mydata" data-mydata="mydata3">#id15</div>
+        <div class="mydata" data-mydata="mydata4">#id16</div>
+    </div>
+    <h2>DOM 实操</h2>
+    <div class="content">
+        <ul>
+            <li>one</li>
+            <li class="special">two</li>
+            <li>three</li>
+            <li>
+                <ul class="sublist">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("页面运行后执行")
+        });
+        $(function() {
+            console.log("和上面一样的效果")
+        });
+        $(function() {
+            // 显示隐藏 hide([可以加时间 毫秒])
+            $("#id1").hide(300).show(1000).hide(300).show(1000)
+            // 上滑隐藏与显示 delay 延迟
+            $("#id2").slideUp(1000).delay(1000).slideDown(1000)
+            // 淡出淡入
+            $("#id3").fadeOut(1000).delay(1000).fadeToggle(1000)
+            // 滑入滑出
+            $("#id4").slideToggle(1000).slideToggle(1000)
+            // 显示隐藏
+            $("#id4").toggle(1000).toggle(1000)
+
+            // .css([object])
+            $("#id5").css({color: "red", backgroundColor: "gray"})
+            $("#id6").css({color: "red", "background-color": "gray"})
+            // 半透明
+            $("#id7").css({opacity: '0.5'})
+
+            $("#id9").html("changed")
+            $("#id10").on('click', function() {
+                $("#id10").css({opacity: '0.5'}).slideToggle(1000).slideToggle(1000)
+            })
+            $("#id10").on('mouseover', function() {
+                $("#id10").css({opacity: '1'})
+            })
+
+            $("#id11").on("click", function() {
+                // .className | tagName
+                $("#id11 span").html("changed")
+            })
+            $("#id11").on('mouseover', function() {
+                $("#id11 span").html("content")
+            })
+
+            /**
+             * data-开头表示自定义属性
+             */ 
+            console.log($('#id13[data-mydata=mydata1]'))
+            console.log($('div[data-mydata=mydata1]'))
+
+            $(".mydata").on("click", function() {
+                // $(".mydata").slideToggle(1000).slideToggle(1000)
+                var mydataId = $(this).attr('data-mydata');
+                console.log(mydataId)
+                $(`div[data-mydata=${mydataId}]`).slideToggle(1000).slideToggle(1000)
+            });
+
+            $("li")
+            $("li").first()
+            $("li").last()
+            $("li").eq(0)
+            $("ul:first").children()
+        });
+    </script>
+</body>
+</html>
