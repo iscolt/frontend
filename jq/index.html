@@ -41,7 +41,7 @@
     </div>
     <h2>DOM 实操</h2>
     <div class="content">
-        <ul>
+        <ul class="list">
             <li>one</li>
             <li class="special">two</li>
             <li>three</li>
@@ -114,6 +114,32 @@
             $("li").last()
             $("li").eq(0)
             $("ul:first").children()
+            // 获取其他同级元素，不包括自己
+            $("li:first").siblings()
+            $("li:first").parent()
+            $("li").eq(4).parent()
+            // .prev上一个元素
+            $("li").eq(4).parent().parent().prev()
+
+            // $('li').on('click', function() {
+            //     // .next() 元素下面的一个元素
+            //     // $(this).next().remove()
+            //     // siblings() 获取其他同级元素，不包括自己
+            //     $(this).removeClass('special')
+            //     // closest('[元素]') 一直向上找到元素
+            //     $(this).closest('.list').addClass('special')
+            // });
+
+            $('.list').on('click', function() {
+                // find 查询
+                // $(this).find('li').addClass('special')
+                // filter() 过滤 给第一添加
+                // $(this).find('li').filter(':first').addClass('special')
+                // 移除类为 special 的元素
+                $(this).find('li').filter('.special').remove()
+                // if ($(this)is('.special'))
+                // if ($(this)not('.special'))
+            });
         });
     </script>
 </body>
